@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍕 START SHAH JE PIZZA POS 🍕</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            animation: gradient 5s ease infinite;
+            background-size: 200% 200%;
+        }
+        
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .container {
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.4);
+            max-width: 900px;
+            width: 100%;
+            padding: 60px 40px;
+            text-align: center;
+            animation: slideIn 0.5s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .logo {
+            font-size: 120px;
+            margin-bottom: 20px;
+            animation: bounce 2s ease infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        h1 {
+            color: #FF6B35;
+            font-size: 48px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .alert {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffe4a0 100%);
+            border: 4px solid #ffc107;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            animation: pulse 2s ease infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+        
+        .alert-title {
+            font-size: 32px;
+            color: #856404;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        
+        .alert-text {
+            font-size: 24px;
+            color: #856404;
+            line-height: 1.6;
+        }
+        
+        .big-button {
+            display: inline-block;
+            padding: 30px 60px;
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 28px;
+            margin: 20px 10px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(40,167,69,0.4);
+            animation: glow 2s ease infinite;
+        }
+        
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 10px 30px rgba(40,167,69,0.4);
+            }
+            50% {
+                box-shadow: 0 10px 50px rgba(40,167,69,0.8);
+            }
+        }
+        
+        .big-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(40,167,69,0.6);
+        }
+        
+        .big-button:active {
+            transform: translateY(-2px) scale(1.02);
+        }
+        
+        .steps {
+            background: #f8f9fa;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: left;
+        }
+        
+        .step {
+            margin: 20px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            border-left: 6px solid #FF6B35;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .step:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .step-number {
+            display: inline-block;
+            background: #FF6B35;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            margin-right: 15px;
+            font-weight: bold;
+            font-size: 24px;
+            float: left;
+        }
+        
+        .step-title {
+            font-weight: bold;
+            color: #333;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .step-desc {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        
+        .code {
+            background: #2d2d2d;
+            color: #4EC9B0;
+            padding: 15px 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            font-size: 18px;
+            display: inline-block;
+        }
+        
+        .footer {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #ddd;
+            color: #666;
+            font-size: 16px;
+        }
+        
+        .blink {
+            animation: blink 1s ease infinite;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">🍕</div>
+        <h1>Shah Je Pizza POS</h1>
+        <p class="subtitle">Professional Point of Sale System</p>
+        
+        <div class="alert">
+            <div class="alert-title blink">⚠️ BACKEND SERVER NOT RUNNING</div>
+            <div class="alert-text">
+                You need to start the backend server to access your database on D drive!
+            </div>
+        </div>
+        
+        <button class="big-button" onclick="startSystem()">
+            🚀 START THE SYSTEM NOW!
+        </button>
+        
+        <div class="steps">
+            <h2 style="text-align: center; color: #333; margin-bottom: 20px; font-size: 28px;">
+                📋 What Happens When You Click Above:
+            </h2>
+            
+            <div class="step">
+                <div class="step-number">1</div>
+                <div>
+                    <div class="step-title">Opens File Explorer</div>
+                    <div class="step-desc">
+                        Your project folder <code class="code">E:\project</code> will open
+                    </div>
+                </div>
+                <div style="clear: both;"></div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">2</div>
+                <div>
+                    <div class="step-title">Find the Startup File</div>
+                    <div class="step-desc">
+                        Look for: <strong>start-complete-system.bat</strong>
+                    </div>
+                </div>
+                <div style="clear: both;"></div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">3</div>
+                <div>
+                    <div class="step-title">Double-Click It</div>
+                    <div class="step-desc">
+                        Two terminal windows will open (Backend + Frontend)
+                    </div>
+                </div>
+                <div style="clear: both;"></div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">4</div>
+                <div>
+                    <div class="step-title">Wait 10 Seconds</div>
+                    <div class="step-desc">
+                        Browser opens automatically at http://localhost:5173
+                    </div>
+                </div>
+                <div style="clear: both;"></div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">5</div>
+                <div>
+                    <div class="step-title">Login & Start Working!</div>
+                    <div class="step-desc">
+                        Username: <strong>admin</strong> | Password: <strong>admin</strong>
+                    </div>
+                </div>
+                <div style="clear: both;"></div>
+            </div>
+        </div>
+        
+        <div style="background: #e7f3ff; border: 3px solid #2196F3; border-radius: 15px; padding: 25px; margin: 30px 0;">
+            <h3 style="color: #1976D2; font-size: 24px; margin-bottom: 15px;">💡 Can't Find the File?</h3>
+            <p style="font-size: 18px; color: #555; margin-bottom: 15px;">
+                Open Command Prompt and run these commands:
+            </p>
+            <code class="code" style="display: block; margin: 10px 0;">cd E:\project</code>
+            <code class="code" style="display: block; margin: 10px 0;">npm install</code>
+            <code class="code" style="display: block; margin: 10px 0;">npm run server</code>
+            <p style="font-size: 16px; color: #666; margin-top: 15px;">
+                Then open a NEW terminal and run:
+            </p>
+            <code class="code" style="display: block; margin: 10px 0;">npm run dev</code>
+        </div>
+        
+        <div style="background: #d4edda; border: 3px solid #28a745; border-radius: 15px; padding: 25px; margin: 30px 0;">
+            <h3 style="color: #155724; font-size: 24px; margin-bottom: 15px;">✅ Your Data is Safe!</h3>
+            <p style="font-size: 18px; color: #155724; line-height: 1.8;">
+                All your orders, bills, and menu are stored on:<br>
+                <strong>D:\ShahJePizza\database\shahje-pizza.db</strong><br>
+                <br>
+                The data is PERMANENT and never disappears!<br>
+                You just need to start the server to access it.
+            </p>
+        </div>
+        
+        <div class="footer">
+            <strong style="font-size: 20px;">Developer:</strong> Abbas Developers<br>
+            <strong style="font-size: 20px;">Phone:</strong> 0304165629<br>
+            <br>
+            <em>This is NOT a bug - it's professional architecture!</em><br>
+            <em>The backend server must run to access the D drive database.</em>
+        </div>
+    </div>
+    
+    <script>
+        function startSystem() {
+            // Try to open the folder
+            const opened = window.open('file:///E:/project', '_blank');
+            
+            // Show instructions
+            alert('INSTRUCTIONS:\n\n' +
+                  '1. A new window should open showing E:\\project folder\n' +
+                  '2. If it doesn\'t open, manually go to E:\\project in File Explorer\n' +
+                  '3. Find the file: start-complete-system.bat\n' +
+                  '4. DOUBLE-CLICK IT\n' +
+                  '5. Wait 10 seconds\n' +
+                  '6. Browser opens automatically\n' +
+                  '7. Login: admin / admin\n\n' +
+                  'Click OK to continue...');
+            
+            // Alternative: Show detailed instructions
+            setTimeout(function() {
+                if (confirm('Did the File Explorer open?\n\nClick YES if you can see the folder.\nClick NO if you need manual instructions.')) {
+                    alert('GREAT! Now:\n\n' +
+                          '1. Find: start-complete-system.bat\n' +
+                          '2. Double-click it\n' +
+                          '3. Wait 10 seconds\n' +
+                          '4. Browser opens → Login with admin/admin');
+                } else {
+                    alert('NO PROBLEM! Do this manually:\n\n' +
+                          '1. Press Windows + E (opens File Explorer)\n' +
+                          '2. In the address bar at top, type: E:\\project\n' +
+                          '3. Press Enter\n' +
+                          '4. You\'ll see all your files\n' +
+                          '5. Find: start-complete-system.bat\n' +
+                          '6. DOUBLE-CLICK it\n' +
+                          '7. Done!');
+                }
+            }, 1000);
+        }
+        
+        // Auto-try to open folder on page load after 2 seconds
+        setTimeout(function() {
+            const openNow = confirm('🍕 Welcome to Shah Je Pizza POS!\n\n' +
+                                   'The system needs the backend server to run.\n\n' +
+                                   'Click OK to open E:\\project folder and start the server.\n' +
+                                   'Click Cancel to see instructions first.');
+            if (openNow) {
+                startSystem();
+            }
+        }, 2000);
+    </script>
+</body>
+</html>
